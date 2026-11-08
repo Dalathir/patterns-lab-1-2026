@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "dp-lab01"
 version = "0.1.0"
@@ -8,6 +12,9 @@ dependencies = []
 dev = [
     "pytest>=8.0",
 ]
+
+[tool.setuptools.packages.find]
+include = ["clocks*", "consts*", "interfaces*", "adapters*", "facades*", "services*", "client*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
