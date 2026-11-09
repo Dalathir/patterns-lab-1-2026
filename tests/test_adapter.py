@@ -3,6 +3,7 @@ from datetime import datetime
 from adapters.digital_clock_adapter import DigitalClockAdapter
 from clocks import AnalogClock
 
+clock = DigitalClockAdapter(AnalogClock())
 
 def test_adapter() -> None:
     clock = DigitalClockAdapter(AnalogClock())
@@ -21,5 +22,13 @@ def test_adapter() -> None:
 
     clock.set_date_time(datetime(2026, 11, 8, 12, 0, 0))
     assert clock.get_date_time() == datetime(2026, 11, 8, 12, 0, 0)
+
+def test_1() -> None:
+    clock.set_date_time(datetime(2026, 11, 8, 0, 0, 0))
+    assert clock.get_date_time() == datetime(2026, 11, 8, 0, 0, 0)
+
+def test_2() -> None:
+    clock.set_date_time(datetime(2026, 11, 8, 0, 0, 0))
+    assert clock.get_date_time() == datetime(2026, 11, 8, 0, 0, 0)
 
 

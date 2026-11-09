@@ -2,7 +2,7 @@ from datetime import datetime
 
 from clocks import AnalogClock
 from consts import DayNightDivision
-from facades.clock_digital import DigitalClock
+from clocks.clock_digital import DigitalClock
 from facades.clock_facade import ClockFacade
 from services import ClockFormatter, ClockHistory
 
@@ -30,14 +30,14 @@ def main() -> None:
     )
 
     print("Исходный объект ClockFacade создан.")
-    print(f"Дата по умолчанию цифровых часов: {facade.get_time(idx=0):%Y-%m-%d}")
-    print(f"Дата по умолчанию аналоговых часов: {facade.get_time(idx=1):%Y-%m-%d}")
+    print(f"Дата по умолчанию цифровых часов: {facade.get_time(idx=0):%d.%m.%Y %H:%M:%S}")
+    print(f"Дата по умолчанию аналоговых часов: {facade.get_time(idx=1):%d.%m.%Y %H:%M:%S}")
 
     facade.set_time(datetime(2026, 11, 7, 15, 42, 30))
 
 
-    print(f"Дата после изменения цифровых часов: {facade.get_time(idx=0):%Y-%m-%d}")
-    print(f"Дата после изменения аналоговых часов: {facade.get_time(idx=1):%Y-%m-%d}")
+    print(f"Дата после изменения цифровых часов: {facade.get_time(idx=0):%d.%m.%Y %H:%M:%S}")
+    print(f"Дата после изменения аналоговых часов: {facade.get_time(idx=1):%d.%m.%Y %H:%M:%S}")
     print(f"Дата форматированного представления: {facade.get_time_format()}")
     print(f"История изменений: {facade.get_time_history()}")
 
